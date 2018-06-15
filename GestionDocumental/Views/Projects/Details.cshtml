@@ -1,0 +1,74 @@
+﻿@model GestionDocumental.Data.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodProject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodProject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameProject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameProject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UseProject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UseProject)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Directory.Acronym)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Directory.Acronym)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdProject }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

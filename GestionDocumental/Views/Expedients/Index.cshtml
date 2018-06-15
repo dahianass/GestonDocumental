@@ -1,0 +1,111 @@
+﻿@model IEnumerable<GestionDocumental.Data.Expedient>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileExpendient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Predial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NameDemandant)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Settled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Court)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Magistrate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Resposible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.appraise)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateCreate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Advance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.CodProject)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeProcess.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileExpendient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Predial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameDemandant)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Settled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Court)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Magistrate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Resposible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.appraise)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Advance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.CodProject)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeProcess.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdExpendient }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdExpendient }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdExpendient })
+        </td>
+    </tr>
+}
+
+</table>

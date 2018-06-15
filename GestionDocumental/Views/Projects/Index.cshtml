@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<GestionDocumental.Data.Project>
+
+@{
+    ViewBag.Title = "Proyectos";
+
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="~/Content/Common.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/app/app.Project.js"></script>
+<script src="~/Scripts/controllers/project.Controller.js"></script>
+<center><h2>Lista de proyectos</h2></center>
+
+<p>
+
+</p>
+<div ng-app="projectApp" ng-controller="ProjectCtrl as vm" class="spaceBody">
+    @{
+
+        int count = 0;
+        foreach (var item in Model)
+        {
+            count++;
+            <div class="col-md-2 folderProject pointer" ng-click="vm.reedirExpeden(@item.IdProject)">
+                <div><label class="labelProject">@item.NameProject</label><br /></div>
+                <div><label class="labelCodProject">@item.CodProject</label></div>
+                <div class="progress-bar" role="progressbar" aria-valuenow="@item.Avance" aria-valuemin="0" aria-valuemax="100" style="width:@item.Avance%">
+                    @item.Avance %
+                </div>
+            </div>
+            if (count == Model.Count())
+            {
+                <div class="col-md-2">
+                    <div class="pointer" ng-click="vm.reedirExpeden(0)">
+                        <img src="~/Img/add.png" style="width:60%" />
+                    </div>
+                    @*<div><label class="">@Html.ActionLink("+", "Create")</label><br /></div>*@
+                    <div><label class="marginProje">Nuevo proyecto</label></div>
+                </div>
+            }
+        }
+    }
+</div>
+<table class="table"></table>

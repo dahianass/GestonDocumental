@@ -1,0 +1,51 @@
+﻿body {
+}
+.folderProject{ 
+    background-image: url(/Img/images.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20%;
+}
+.labelProject{
+    font-family: fantasy;
+    color: #847777;
+    margin-top: 27%;
+    margin-left: 3%;
+    font-size:x-large;
+}
+.labelCodProject{
+    margin-left: 3%;
+    color: #ffa000;
+    margin-bottom: 14%;
+}
+.progress-bar {
+    margin-top: 12%;
+    margin-bottom: 5%;
+}
+.addProject{ 
+    background-image: url(/Img/add.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20%;
+}
+.marginProje {
+    font-family: fantasy;
+    color: #847777;
+    margin-left: 3%;
+}
+.pointer {
+    cursor:pointer;
+    cursor: hand;
+}
+.iconPP {
+    position:relative !important;   
+    margin-left:15% !important;
+    margin-top:-2% !important;
+}
+.classIcon {
+    position:absolute !important;
+    margin-top:1%;
+}
+.spaceBody {
+    margin-top:5%;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7494aa6f4d7641aab2306c2943b0f2ba" Name="Diagram1">
+        <EntityTypeShape EntityType="GDModel.Audit" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Check" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.CheckProcess" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.CheckType" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Directory" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Document" Width="1.5" PointX="5.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.DocumentCheck" Width="1.5" PointX="7.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.DocumentProcess" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Expedient" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Project" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Record" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Rol" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.State" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.Type" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.TypeProcess" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GDModel.UserGD" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <AssociationConnector Association="GDModel.FK_CheckType_Check" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_CheckProcess_CheckType" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_CheckProcess_Expedient" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_CheckType_TypeProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_CheckType" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_DocumentProcess_CheckType" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_Project_Directory" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_UserGD_Directory" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_Document" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_State" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_DocumentProcess_Expedient" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_Expedient_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_Expedient_TypeProcess" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_Record_Expedient" ManuallyRouted="false" />
+        <AssociationConnector Association="GDModel.FK_UserGD_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
