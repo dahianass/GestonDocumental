@@ -37,6 +37,22 @@ namespace GestionDocumental.Controllers
             return View(expedient);
         }
 
+        [HttpGet]
+        public JsonResult getListExpedient(int? id)
+        {
+
+            var expedient = db.Expedient.Where(e => e.IdProject == id);
+            List<ExpedientsMD> ListExpedient = new List<ExpedientsMD>();
+
+            foreach (Expedient item in expedient)
+            {
+                ExpedientsMD itemExpe = ConvertExpedientSM(item);
+                ListExpedient.Add(itemExpe);
+            }
+
+            return Json(ListExpedient, JsonRequestBehavior.AllowGet);
+        }
+
         // GET: Expedients/Create
         public ActionResult Create()
         {
@@ -139,14 +155,23 @@ namespace GestionDocumental.Controllers
         public ActionResult List(int id)
         {
             var expedient = db.Expedient.Where(e => e.IdProject == id);
+            ExpedientProjectMD objProject = new ExpedientProjectMD();
+            Project project = db.Project.Find(id);
+
+            objProject.IdProject = project.IdProject;
+            objProject.CodProject = project.CodProject;
+            objProject.NameProject = project.NameProject;
             List<ExpedientsMD> ListExpedient = new List<ExpedientsMD>();
+
+
+            objProject.ListExpendient = ListExpedient;
 
             foreach (Expedient item in expedient)
             {
-                ExpedientsMD itemExpe =  ConvertExpedientSM(item);
+                ExpedientsMD itemExpe = ConvertExpedientSM(item);
                 ListExpedient.Add(itemExpe);
             }
-            return View(ListExpedient);
+            return View(objProject);
         }
 
         private ExpedientsMD ConvertExpedientSM(Expedient expedient)

@@ -5,39 +5,39 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="32449ad2160c47b2bf097649a5a0edfb" Name="Diagram1">
-        <EntityTypeShape EntityType="GDModel.Audit" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Check" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.CheckProcess" Width="1.5" PointX="7.5" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.CheckType" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Directory" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Document" Width="1.5" PointX="5.25" PointY="19.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.DocumentCheck" Width="1.5" PointX="7.5" PointY="17.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.DocumentProcess" Width="1.5" PointX="10.5" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Expedient" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Project" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Record" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Rol" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.State" Width="1.5" PointX="5.25" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.Type" Width="1.5" PointX="5.25" PointY="24.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.TypeProcess" Width="1.5" PointX="3" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GDModel.UserGD" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
-        <AssociationConnector Association="GDModel.FK_CheckType_Check" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_CheckProcess_CheckType" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_CheckProcess_Expedient" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_CheckType_TypeProcess" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_DocumentCheck_CheckType" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_DocumentProcess_CheckType" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_Project_Directory" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_UserGD_Directory" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_DocumentCheck_Document" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_DocumentCheck_State" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_DocumentCheck_Type" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_DocumentProcess_Expedient" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_Expedient_Project" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_Expedient_TypeProcess" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_Record_Expedient" ManuallyRouted="false" />
-        <AssociationConnector Association="GDModel.FK_UserGD_Rol" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GDModel.Audit" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="GDModel.Check" Width="1.5" PointX="3" PointY="2.25" />
+        <EntityTypeShape EntityType="GDModel.CheckProcess" Width="1.5" PointX="7.5" PointY="10.125" />
+        <EntityTypeShape EntityType="GDModel.CheckType" Width="1.5" PointX="5.25" PointY="2" />
+        <EntityTypeShape EntityType="GDModel.Directory" Width="1.5" PointX="0.75" PointY="6" />
+        <EntityTypeShape EntityType="GDModel.Document" Width="1.5" PointX="6" PointY="20.625" />
+        <EntityTypeShape EntityType="GDModel.DocumentCheck" Width="1.5" PointX="8.25" PointY="22.625" />
+        <EntityTypeShape EntityType="GDModel.DocumentProcess" Width="1.5" PointX="10.5" PointY="9.875" />
+        <EntityTypeShape EntityType="GDModel.Expedient" Width="1.5" PointX="5.25" PointY="8.875" />
+        <EntityTypeShape EntityType="GDModel.Project" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="GDModel.Record" Width="1.5" PointX="7.5" PointY="16.625" />
+        <EntityTypeShape EntityType="GDModel.Rol" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="GDModel.State" Width="1.5" PointX="6" PointY="26" />
+        <EntityTypeShape EntityType="GDModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GDModel.Type" Width="1.5" PointX="6" PointY="23.25" />
+        <EntityTypeShape EntityType="GDModel.TypeProcess" Width="1.5" PointX="3" PointY="14.125" />
+        <EntityTypeShape EntityType="GDModel.UserGD" Width="1.5" PointX="3" PointY="5.375" />
+        <AssociationConnector Association="GDModel.FK_CheckType_Check" />
+        <AssociationConnector Association="GDModel.FK_CheckProcess_CheckType" />
+        <AssociationConnector Association="GDModel.FK_CheckProcess_Expedient" />
+        <AssociationConnector Association="GDModel.FK_CheckType_TypeProcess" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_CheckType" />
+        <AssociationConnector Association="GDModel.FK_Project_Directory" />
+        <AssociationConnector Association="GDModel.FK_UserGD_Directory" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_Document" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_State" />
+        <AssociationConnector Association="GDModel.FK_DocumentCheck_Type" />
+        <AssociationConnector Association="GDModel.FK_DocumentProcess_CheckType" />
+        <AssociationConnector Association="GDModel.FK_DocumentProcess_Expedient" />
+        <AssociationConnector Association="GDModel.FK_Expedient_Project" />
+        <AssociationConnector Association="GDModel.FK_Expedient_TypeProcess" />
+        <AssociationConnector Association="GDModel.FK_Record_Expedient" />
+        <AssociationConnector Association="GDModel.FK_UserGD_Rol" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GestionDocumental.Data.DocumentCheck>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Requiered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CheckType.IdCheckType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Document.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Requiered)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CheckType.IdCheckType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Document.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdDocumentCheck }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdDocumentCheck }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdDocumentCheck })
+        </td>
+    </tr>
+}
+
+</table>

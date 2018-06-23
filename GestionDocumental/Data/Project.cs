@@ -24,9 +24,9 @@ namespace GestionDocumental.Data
         public string CodProject { get; set; }
         public string NameProject { get; set; }
         public Nullable<int> IdRepresent { get; set; }
-        public System.DateTime DateCreate { get; set; }
-        public bool UseProject { get; set; }
-        public bool Active { get; set; }
+        public Nullable<System.DateTime> DateCreate { get; set; }
+        public Nullable<bool> UseProject { get; set; }
+        public Nullable<bool> Active { get; set; }
         public Nullable<int> Avance { get; set; }
     
         public virtual Directory Directory { get; set; }

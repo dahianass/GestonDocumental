@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GestionDocumental.Data.DocumentProcess>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdState)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Requiered)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocumentCheck.IdDocumentCheck)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Expedient.FileExpendient)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdState)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Requiered)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DocumentCheck.IdDocumentCheck)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Expedient.FileExpendient)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdDocumentProcess }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdDocumentProcess }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdDocumentProcess })
+        </td>
+    </tr>
+}
+
+</table>

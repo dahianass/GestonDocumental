@@ -4,208 +4,208 @@
     <EntitySetMapping Name="Audit">
       <EntityTypeMapping TypeName="GDModel.Audit">
         <MappingFragment StoreEntitySet="Audit">
-          <ScalarProperty Name="IdAudit" ColumnName="IdAudit" />
-          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
-          <ScalarProperty Name="Action" ColumnName="Action" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="createDate" ColumnName="createDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="IdAudit" ColumnName="IdAudit" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Check">
       <EntityTypeMapping TypeName="GDModel.Check">
         <MappingFragment StoreEntitySet="Check">
-          <ScalarProperty Name="IdCheck" ColumnName="IdCheck" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdCheck" ColumnName="IdCheck" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CheckProcess">
       <EntityTypeMapping TypeName="GDModel.CheckProcess">
         <MappingFragment StoreEntitySet="CheckProcess">
-          <ScalarProperty Name="IdCheckProcess" ColumnName="IdCheckProcess" />
-          <ScalarProperty Name="IdExpendient" ColumnName="IdExpendient" />
-          <ScalarProperty Name="IdCheckType" ColumnName="IdCheckType" />
-          <ScalarProperty Name="Complete" ColumnName="Complete" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Complete" ColumnName="Complete" />
+          <ScalarProperty Name="IdCheckType" ColumnName="IdCheckType" />
+          <ScalarProperty Name="IdExpendient" ColumnName="IdExpendient" />
+          <ScalarProperty Name="IdCheckProcess" ColumnName="IdCheckProcess" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CheckType">
       <EntityTypeMapping TypeName="GDModel.CheckType">
         <MappingFragment StoreEntitySet="CheckType">
-          <ScalarProperty Name="IdCheckType" ColumnName="IdCheckType" />
-          <ScalarProperty Name="IdTypeProcess" ColumnName="IdTypeProcess" />
-          <ScalarProperty Name="IdChecck" ColumnName="IdChecck" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="IdChecck" ColumnName="IdChecck" />
+          <ScalarProperty Name="IdTypeProcess" ColumnName="IdTypeProcess" />
+          <ScalarProperty Name="IdCheckType" ColumnName="IdCheckType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Directory">
       <EntityTypeMapping TypeName="GDModel.Directory">
         <MappingFragment StoreEntitySet="Directory">
-          <ScalarProperty Name="IdDirectory" ColumnName="IdDirectory" />
-          <ScalarProperty Name="Acronym" ColumnName="Acronym" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="DocumentIdentity" ColumnName="DocumentIdentity" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="NumberTelephone" ColumnName="NumberTelephone" />
-          <ScalarProperty Name="Movil" ColumnName="Movil" />
-          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="UseProject" ColumnName="UseProject" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Movil" ColumnName="Movil" />
+          <ScalarProperty Name="NumberTelephone" ColumnName="NumberTelephone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DocumentIdentity" ColumnName="DocumentIdentity" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Acronym" ColumnName="Acronym" />
+          <ScalarProperty Name="IdDirectory" ColumnName="IdDirectory" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Document">
       <EntityTypeMapping TypeName="GDModel.Document">
         <MappingFragment StoreEntitySet="Document">
-          <ScalarProperty Name="IdDocument" ColumnName="IdDocument" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdDocument" ColumnName="IdDocument" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DocumentCheck">
       <EntityTypeMapping TypeName="GDModel.DocumentCheck">
         <MappingFragment StoreEntitySet="DocumentCheck">
-          <ScalarProperty Name="IdDocumentCheck" ColumnName="IdDocumentCheck" />
-          <ScalarProperty Name="IdDocument" ColumnName="IdDocument" />
-          <ScalarProperty Name="IdCheckType" ColumnName="IdCheckType" />
-          <ScalarProperty Name="IdState" ColumnName="IdState" />
-          <ScalarProperty Name="IdType" ColumnName="IdType" />
-          <ScalarProperty Name="Requiered" ColumnName="Requiered" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Requiered" ColumnName="Requiered" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+          <ScalarProperty Name="IdCheckType" ColumnName="IdCheckType" />
+          <ScalarProperty Name="IdDocument" ColumnName="IdDocument" />
+          <ScalarProperty Name="IdDocumentCheck" ColumnName="IdDocumentCheck" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="DocumentProcess">
       <EntityTypeMapping TypeName="GDModel.DocumentProcess">
         <MappingFragment StoreEntitySet="DocumentProcess">
-          <ScalarProperty Name="IdDocumentProcess" ColumnName="IdDocumentProcess" />
-          <ScalarProperty Name="IdCheckType" ColumnName="IdCheckType" />
-          <ScalarProperty Name="IdExpedient" ColumnName="IdExpedient" />
-          <ScalarProperty Name="IdState" ColumnName="IdState" />
-          <ScalarProperty Name="IdType" ColumnName="IdType" />
-          <ScalarProperty Name="Requiered" ColumnName="Requiered" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Requiered" ColumnName="Requiered" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
+          <ScalarProperty Name="IdExpedient" ColumnName="IdExpedient" />
+          <ScalarProperty Name="IdDocumentCheck" ColumnName="IdDocumentCheck" />
+          <ScalarProperty Name="IdDocumentProcess" ColumnName="IdDocumentProcess" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Expedient">
       <EntityTypeMapping TypeName="GDModel.Expedient">
         <MappingFragment StoreEntitySet="Expedient">
-          <ScalarProperty Name="IdExpendient" ColumnName="IdExpendient" />
-          <ScalarProperty Name="IdProject" ColumnName="IdProject" />
-          <ScalarProperty Name="FileExpendient" ColumnName="FileExpendient" />
-          <ScalarProperty Name="Predial" ColumnName="Predial" />
-          <ScalarProperty Name="NameDemandant" ColumnName="NameDemandant" />
-          <ScalarProperty Name="IdTypeProcess" ColumnName="IdTypeProcess" />
-          <ScalarProperty Name="Settled" ColumnName="Settled" />
-          <ScalarProperty Name="Court" ColumnName="Court" />
-          <ScalarProperty Name="Magistrate" ColumnName="Magistrate" />
-          <ScalarProperty Name="Resposible" ColumnName="Resposible" />
-          <ScalarProperty Name="Amount" ColumnName="Amount" />
-          <ScalarProperty Name="appraise" ColumnName="appraise" />
-          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
-          <ScalarProperty Name="Advance" ColumnName="Advance" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Advance" ColumnName="Advance" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="appraise" ColumnName="appraise" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Resposible" ColumnName="Resposible" />
+          <ScalarProperty Name="Magistrate" ColumnName="Magistrate" />
+          <ScalarProperty Name="Court" ColumnName="Court" />
+          <ScalarProperty Name="Settled" ColumnName="Settled" />
+          <ScalarProperty Name="IdTypeProcess" ColumnName="IdTypeProcess" />
+          <ScalarProperty Name="NameDemandant" ColumnName="NameDemandant" />
+          <ScalarProperty Name="Predial" ColumnName="Predial" />
+          <ScalarProperty Name="FileExpendient" ColumnName="FileExpendient" />
+          <ScalarProperty Name="IdProject" ColumnName="IdProject" />
+          <ScalarProperty Name="IdExpendient" ColumnName="IdExpendient" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Project">
       <EntityTypeMapping TypeName="GDModel.Project">
         <MappingFragment StoreEntitySet="Project">
-          <ScalarProperty Name="IdProject" ColumnName="IdProject" />
-          <ScalarProperty Name="CodProject" ColumnName="CodProject" />
-          <ScalarProperty Name="NameProject" ColumnName="NameProject" />
-          <ScalarProperty Name="IdRepresent" ColumnName="IdRepresent" />
-          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
-          <ScalarProperty Name="UseProject" ColumnName="UseProject" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="Avance" ColumnName="Avance" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UseProject" ColumnName="UseProject" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="IdRepresent" ColumnName="IdRepresent" />
+          <ScalarProperty Name="NameProject" ColumnName="NameProject" />
+          <ScalarProperty Name="CodProject" ColumnName="CodProject" />
+          <ScalarProperty Name="IdProject" ColumnName="IdProject" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Record">
       <EntityTypeMapping TypeName="GDModel.Record">
         <MappingFragment StoreEntitySet="Record">
-          <ScalarProperty Name="IdRecord" ColumnName="IdRecord" />
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
-          <ScalarProperty Name="IdCheckProcess" ColumnName="IdCheckProcess" />
-          <ScalarProperty Name="IdExpedient" ColumnName="IdExpedient" />
-          <ScalarProperty Name="Observation" ColumnName="Observation" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Observation" ColumnName="Observation" />
+          <ScalarProperty Name="IdExpedient" ColumnName="IdExpedient" />
+          <ScalarProperty Name="IdCheckProcess" ColumnName="IdCheckProcess" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
+          <ScalarProperty Name="IdRecord" ColumnName="IdRecord" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Rol">
       <EntityTypeMapping TypeName="GDModel.Rol">
         <MappingFragment StoreEntitySet="Rol">
-          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="State">
       <EntityTypeMapping TypeName="GDModel.State">
         <MappingFragment StoreEntitySet="State">
-          <ScalarProperty Name="IdState" ColumnName="IdState" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdState" ColumnName="IdState" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="GDModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
           <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Type">
       <EntityTypeMapping TypeName="GDModel.Type">
         <MappingFragment StoreEntitySet="Type">
-          <ScalarProperty Name="IdType" ColumnName="IdType" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdType" ColumnName="IdType" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TypeProcess">
       <EntityTypeMapping TypeName="GDModel.TypeProcess">
         <MappingFragment StoreEntitySet="TypeProcess">
-          <ScalarProperty Name="IdTypeProcess" ColumnName="IdTypeProcess" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Descriptionq" ColumnName="Descriptionq" />
-          <ScalarProperty Name="Active" ColumnName="Active" />
           <ScalarProperty Name="UseType" ColumnName="UseType" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Descriptionq" ColumnName="Descriptionq" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="IdTypeProcess" ColumnName="IdTypeProcess" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="UserGD">
       <EntityTypeMapping TypeName="GDModel.UserGD">
         <MappingFragment StoreEntitySet="UserGD">
-          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
-          <ScalarProperty Name="IdDirectory" ColumnName="IdDirectory" />
-          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
-          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
           <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="IdRol" ColumnName="IdRol" />
+          <ScalarProperty Name="IdDirectory" ColumnName="IdDirectory" />
+          <ScalarProperty Name="IdUser" ColumnName="IdUser" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

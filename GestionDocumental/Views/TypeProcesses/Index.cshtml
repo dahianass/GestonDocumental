@@ -1,13 +1,15 @@
 ﻿@model IEnumerable<GestionDocumental.Data.TypeProcess>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Tipo de procesos";
 }
 
-<h2>Index</h2>
+<link rel="icon" href="@Url.Content("~/Img/logo.ico") />
+
+<h2>Lista de tipos de procesos</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("+ Crear nuevo", "Create")
 </p>
 <table class="table">
     <tr>

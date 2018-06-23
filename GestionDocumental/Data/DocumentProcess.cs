@@ -15,14 +15,14 @@ namespace GestionDocumental.Data
     public partial class DocumentProcess
     {
         public int IdDocumentProcess { get; set; }
-        public int IdCheckType { get; set; }
+        public int IdDocumentCheck { get; set; }
         public int IdExpedient { get; set; }
         public Nullable<int> IdState { get; set; }
         public Nullable<int> IdType { get; set; }
         public bool Requiered { get; set; }
         public bool Active { get; set; }
     
-        public virtual CheckType CheckType { get; set; }
+        public virtual DocumentCheck DocumentCheck { get; set; }
         public virtual Expedient Expedient { get; set; }
     }
 }

@@ -1,2 +1,2 @@
 ﻿angular
-    .module('ExpedientProjectApp', []);
+    .module('ExpedientProjectApp', ['kendo.directives']);

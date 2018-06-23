@@ -19,7 +19,6 @@ namespace GestionDocumental.Data
         {
             this.CheckProcess = new HashSet<CheckProcess>();
             this.DocumentCheck = new HashSet<DocumentCheck>();
-            this.DocumentProcess = new HashSet<DocumentProcess>();
         }
     
         public int IdCheckType { get; set; }
@@ -33,7 +32,5 @@ namespace GestionDocumental.Data
         public virtual TypeProcess TypeProcess { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentCheck> DocumentCheck { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DocumentProcess> DocumentProcess { get; set; }
     }
 }

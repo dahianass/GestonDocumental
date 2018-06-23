@@ -80,7 +80,7 @@
       <PropertyRef Name="IdDocumentProcess" />
     </Key>
     <Property Name="IdDocumentProcess" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="IdCheckType" Type="int" Nullable="false" />
+    <Property Name="IdDocumentCheck" Type="int" Nullable="false" />
     <Property Name="IdExpedient" Type="int" Nullable="false" />
     <Property Name="IdState" Type="int" />
     <Property Name="IdType" Type="int" />
@@ -115,9 +115,9 @@
     <Property Name="CodProject" Type="nvarchar" MaxLength="10" />
     <Property Name="NameProject" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="IdRepresent" Type="int" />
-    <Property Name="DateCreate" Type="datetime" Nullable="false" />
-    <Property Name="UseProject" Type="bit" Nullable="false" />
-    <Property Name="Active" Type="bit" Nullable="false" />
+    <Property Name="DateCreate" Type="datetime" />
+    <Property Name="UseProject" Type="bit" />
+    <Property Name="Active" Type="bit" />
     <Property Name="Avance" Type="int" />
   </EntityType>
   <EntityType Name="Record">
@@ -288,14 +288,14 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DocumentProcess_CheckType">
-    <End Role="CheckType" Type="Self.CheckType" Multiplicity="1" />
+    <End Role="DocumentCheck" Type="Self.DocumentCheck" Multiplicity="1" />
     <End Role="DocumentProcess" Type="Self.DocumentProcess" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="CheckType">
-        <PropertyRef Name="IdCheckType" />
+      <Principal Role="DocumentCheck">
+        <PropertyRef Name="IdDocumentCheck" />
       </Principal>
       <Dependent Role="DocumentProcess">
-        <PropertyRef Name="IdCheckType" />
+        <PropertyRef Name="IdDocumentCheck" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -434,7 +434,7 @@
       <End Role="DocumentCheck" EntitySet="DocumentCheck" />
     </AssociationSet>
     <AssociationSet Name="FK_DocumentProcess_CheckType" Association="Self.FK_DocumentProcess_CheckType">
-      <End Role="CheckType" EntitySet="CheckType" />
+      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
       <End Role="DocumentProcess" EntitySet="DocumentProcess" />
     </AssociationSet>
     <AssociationSet Name="FK_DocumentProcess_Expedient" Association="Self.FK_DocumentProcess_Expedient">

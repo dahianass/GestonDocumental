@@ -14,6 +14,12 @@ namespace GestionDocumental.Data
     
     public partial class DocumentCheck
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public DocumentCheck()
+        {
+            this.DocumentProcess = new HashSet<DocumentProcess>();
+        }
+    
         public int IdDocumentCheck { get; set; }
         public Nullable<int> IdDocument { get; set; }
         public int IdCheckType { get; set; }
@@ -26,5 +32,7 @@ namespace GestionDocumental.Data
         public virtual Document Document { get; set; }
         public virtual State State { get; set; }
         public virtual Type Type { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DocumentProcess> DocumentProcess { get; set; }
     }
 }

@@ -1,0 +1,34 @@
+﻿
+@model IEnumerable<GestionDocumental.Data.DocumentCheck>
+
+
+@{
+    ViewBag.Title = "Chequeo";
+}
+
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.common.min.css">
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.rtl.min.css">
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.default.min.css">
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.mobile.all.min.css">
+
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+
+<script src="https://kendo.cdn.telerik.com/2018.2.516/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2018.2.516/js/kendo.all.min.js"></script>
+
+<script src="~/Scripts/app/app.DocumentChecks.js"></script>
+<script src="~/Scripts/controllers/documentCheck.Controller.js"></script>
+<script src="~/Scripts/Factory/DocumentCheckFactory.js"></script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body ng-app="DocumentCheckApp">
+    <div ng-controller="DocumentCheckController as vm">
+
+    </div>
+</body>
+</html>

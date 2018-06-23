@@ -9,10 +9,8 @@ function ProjectCtrl() {
         if (id != 0) {
             window.location.href = "../Expedients/List/" + id;
         } else {
-            window.location.href = "Create";
+            window.location.href = "Projects/Create";
         }
     }
 }
-
-
 

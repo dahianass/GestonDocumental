@@ -10,13 +10,13 @@
                 getListExpedient: getListExpedient
             };
 
-            function getListExpedient() {
-                return $http.get('/Expedients/List/1')
+            function getListExpedient(id) {
+                return $http.get('/Expedients/getListExpedient/' + id)
                     .then(getAvengersComplete)
                     .catch(getAvengersFailed);
 
                 function getAvengersComplete(response) {
-                    return response.data.results;
+                    return response.data;
                 }
 
                 function getAvengersFailed(error) {

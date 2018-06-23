@@ -1,12 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="GDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Audit" EntityType="GDModel.Audit" />
+    <EntitySet Name="Check" EntityType="GDModel.Check" />
+    <EntitySet Name="CheckProcess" EntityType="GDModel.CheckProcess" />
+    <EntitySet Name="CheckType" EntityType="GDModel.CheckType" />
+    <EntitySet Name="Directory" EntityType="GDModel.Directory" />
+    <EntitySet Name="Document" EntityType="GDModel.Document" />
+    <EntitySet Name="DocumentCheck" EntityType="GDModel.DocumentCheck" />
+    <EntitySet Name="DocumentProcess" EntityType="GDModel.DocumentProcess" />
+    <EntitySet Name="Expedient" EntityType="GDModel.Expedient" />
+    <EntitySet Name="Project" EntityType="GDModel.Project" />
+    <EntitySet Name="Record" EntityType="GDModel.Record" />
+    <EntitySet Name="Rol" EntityType="GDModel.Rol" />
+    <EntitySet Name="State" EntityType="GDModel.State" />
+    <EntitySet Name="sysdiagrams" EntityType="GDModel.sysdiagrams" />
+    <EntitySet Name="Type" EntityType="GDModel.Type" />
+    <EntitySet Name="TypeProcess" EntityType="GDModel.TypeProcess" />
+    <EntitySet Name="UserGD" EntityType="GDModel.UserGD" />
+    <AssociationSet Name="FK_CheckType_Check" Association="GDModel.FK_CheckType_Check">
+      <End Role="Check" EntitySet="Check" />
+      <End Role="CheckType" EntitySet="CheckType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckProcess_CheckType" Association="GDModel.FK_CheckProcess_CheckType">
+      <End Role="CheckType" EntitySet="CheckType" />
+      <End Role="CheckProcess" EntitySet="CheckProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckProcess_Expedient" Association="GDModel.FK_CheckProcess_Expedient">
+      <End Role="Expedient" EntitySet="Expedient" />
+      <End Role="CheckProcess" EntitySet="CheckProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckType_TypeProcess" Association="GDModel.FK_CheckType_TypeProcess">
+      <End Role="TypeProcess" EntitySet="TypeProcess" />
+      <End Role="CheckType" EntitySet="CheckType" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentCheck_CheckType" Association="GDModel.FK_DocumentCheck_CheckType">
+      <End Role="CheckType" EntitySet="CheckType" />
+      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_Directory" Association="GDModel.FK_Project_Directory">
+      <End Role="Directory" EntitySet="Directory" />
+      <End Role="Project" EntitySet="Project" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGD_Directory" Association="GDModel.FK_UserGD_Directory">
+      <End Role="Directory" EntitySet="Directory" />
+      <End Role="UserGD" EntitySet="UserGD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentCheck_Document" Association="GDModel.FK_DocumentCheck_Document">
+      <End Role="Document" EntitySet="Document" />
+      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentCheck_State" Association="GDModel.FK_DocumentCheck_State">
+      <End Role="State" EntitySet="State" />
+      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentCheck_Type" Association="GDModel.FK_DocumentCheck_Type">
+      <End Role="Type" EntitySet="Type" />
+      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentProcess_CheckType" Association="GDModel.FK_DocumentProcess_CheckType">
+      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
+      <End Role="DocumentProcess" EntitySet="DocumentProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentProcess_Expedient" Association="GDModel.FK_DocumentProcess_Expedient">
+      <End Role="Expedient" EntitySet="Expedient" />
+      <End Role="DocumentProcess" EntitySet="DocumentProcess" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expedient_Project" Association="GDModel.FK_Expedient_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Expedient" EntitySet="Expedient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Expedient_TypeProcess" Association="GDModel.FK_Expedient_TypeProcess">
+      <End Role="TypeProcess" EntitySet="TypeProcess" />
+      <End Role="Expedient" EntitySet="Expedient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Record_Expedient" Association="GDModel.FK_Record_Expedient">
+      <End Role="Expedient" EntitySet="Expedient" />
+      <End Role="Record" EntitySet="Record" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGD_Rol" Association="GDModel.FK_UserGD_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="UserGD" EntitySet="UserGD" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="Audit">
     <Key>
       <PropertyRef Name="IdAudit" />
     </Key>
     <Property Name="IdAudit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="NameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="createDate" Type="DateTime" Precision="3" />
   </EntityType>
@@ -15,10 +98,10 @@
       <PropertyRef Name="IdCheck" />
     </Key>
     <Property Name="IdCheck" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="CheckType" Relationship="Self.FK_CheckType_Check" FromRole="Check" ToRole="CheckType" />
+    <NavigationProperty Name="CheckType" Relationship="GDModel.FK_CheckType_Check" FromRole="Check" ToRole="CheckType" />
   </EntityType>
   <EntityType Name="CheckProcess">
     <Key>
@@ -29,8 +112,8 @@
     <Property Name="IdCheckType" Type="Int32" Nullable="false" />
     <Property Name="Complete" Type="Boolean" Nullable="false" />
     <Property Name="Active" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="CheckType" Relationship="Self.FK_CheckProcess_CheckType" FromRole="CheckProcess" ToRole="CheckType" />
-    <NavigationProperty Name="Expedient" Relationship="Self.FK_CheckProcess_Expedient" FromRole="CheckProcess" ToRole="Expedient" />
+    <NavigationProperty Name="CheckType" Relationship="GDModel.FK_CheckProcess_CheckType" FromRole="CheckProcess" ToRole="CheckType" />
+    <NavigationProperty Name="Expedient" Relationship="GDModel.FK_CheckProcess_Expedient" FromRole="CheckProcess" ToRole="Expedient" />
   </EntityType>
   <EntityType Name="CheckType">
     <Key>
@@ -40,11 +123,10 @@
     <Property Name="IdTypeProcess" Type="Int32" Nullable="false" />
     <Property Name="IdChecck" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Check" Relationship="Self.FK_CheckType_Check" FromRole="CheckType" ToRole="Check" />
-    <NavigationProperty Name="CheckProcess" Relationship="Self.FK_CheckProcess_CheckType" FromRole="CheckType" ToRole="CheckProcess" />
-    <NavigationProperty Name="TypeProcess" Relationship="Self.FK_CheckType_TypeProcess" FromRole="CheckType" ToRole="TypeProcess" />
-    <NavigationProperty Name="DocumentCheck" Relationship="Self.FK_DocumentCheck_CheckType" FromRole="CheckType" ToRole="DocumentCheck" />
-    <NavigationProperty Name="DocumentProcess" Relationship="Self.FK_DocumentProcess_CheckType" FromRole="CheckType" ToRole="DocumentProcess" />
+    <NavigationProperty Name="Check" Relationship="GDModel.FK_CheckType_Check" FromRole="CheckType" ToRole="Check" />
+    <NavigationProperty Name="CheckProcess" Relationship="GDModel.FK_CheckProcess_CheckType" FromRole="CheckType" ToRole="CheckProcess" />
+    <NavigationProperty Name="TypeProcess" Relationship="GDModel.FK_CheckType_TypeProcess" FromRole="CheckType" ToRole="TypeProcess" />
+    <NavigationProperty Name="DocumentCheck" Relationship="GDModel.FK_DocumentCheck_CheckType" FromRole="CheckType" ToRole="DocumentCheck" />
   </EntityType>
   <EntityType Name="Directory">
     <Key>
@@ -52,8 +134,8 @@
     </Key>
     <Property Name="IdDirectory" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Acronym" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="DocumentIdentity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DocumentIdentity" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="NumberTelephone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -61,18 +143,18 @@
     <Property Name="DateCreate" Type="DateTime" Precision="3" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <Property Name="UseProject" Type="Boolean" />
-    <NavigationProperty Name="Project" Relationship="Self.FK_Project_Directory" FromRole="Directory" ToRole="Project" />
-    <NavigationProperty Name="UserGD" Relationship="Self.FK_UserGD_Directory" FromRole="Directory" ToRole="UserGD" />
+    <NavigationProperty Name="Project" Relationship="GDModel.FK_Project_Directory" FromRole="Directory" ToRole="Project" />
+    <NavigationProperty Name="UserGD" Relationship="GDModel.FK_UserGD_Directory" FromRole="Directory" ToRole="UserGD" />
   </EntityType>
   <EntityType Name="Document">
     <Key>
       <PropertyRef Name="IdDocument" />
     </Key>
     <Property Name="IdDocument" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="DocumentCheck" Relationship="Self.FK_DocumentCheck_Document" FromRole="Document" ToRole="DocumentCheck" />
+    <NavigationProperty Name="DocumentCheck" Relationship="GDModel.FK_DocumentCheck_Document" FromRole="Document" ToRole="DocumentCheck" />
   </EntityType>
   <EntityType Name="DocumentCheck">
     <Key>
@@ -85,24 +167,25 @@
     <Property Name="IdType" Type="Int32" Nullable="false" />
     <Property Name="Requiered" Type="Boolean" Nullable="false" />
     <Property Name="Active" Type="Boolean" />
-    <NavigationProperty Name="CheckType" Relationship="Self.FK_DocumentCheck_CheckType" FromRole="DocumentCheck" ToRole="CheckType" />
-    <NavigationProperty Name="Document" Relationship="Self.FK_DocumentCheck_Document" FromRole="DocumentCheck" ToRole="Document" />
-    <NavigationProperty Name="State" Relationship="Self.FK_DocumentCheck_State" FromRole="DocumentCheck" ToRole="State" />
-    <NavigationProperty Name="Type" Relationship="Self.FK_DocumentCheck_Type" FromRole="DocumentCheck" ToRole="Type" />
+    <NavigationProperty Name="CheckType" Relationship="GDModel.FK_DocumentCheck_CheckType" FromRole="DocumentCheck" ToRole="CheckType" />
+    <NavigationProperty Name="Document" Relationship="GDModel.FK_DocumentCheck_Document" FromRole="DocumentCheck" ToRole="Document" />
+    <NavigationProperty Name="State" Relationship="GDModel.FK_DocumentCheck_State" FromRole="DocumentCheck" ToRole="State" />
+    <NavigationProperty Name="Type" Relationship="GDModel.FK_DocumentCheck_Type" FromRole="DocumentCheck" ToRole="Type" />
+    <NavigationProperty Name="DocumentProcess" Relationship="GDModel.FK_DocumentProcess_CheckType" FromRole="DocumentCheck" ToRole="DocumentProcess" />
   </EntityType>
   <EntityType Name="DocumentProcess">
     <Key>
       <PropertyRef Name="IdDocumentProcess" />
     </Key>
     <Property Name="IdDocumentProcess" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="IdCheckType" Type="Int32" Nullable="false" />
+    <Property Name="IdDocumentCheck" Type="Int32" Nullable="false" />
     <Property Name="IdExpedient" Type="Int32" Nullable="false" />
     <Property Name="IdState" Type="Int32" />
     <Property Name="IdType" Type="Int32" />
     <Property Name="Requiered" Type="Boolean" Nullable="false" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="CheckType" Relationship="Self.FK_DocumentProcess_CheckType" FromRole="DocumentProcess" ToRole="CheckType" />
-    <NavigationProperty Name="Expedient" Relationship="Self.FK_DocumentProcess_Expedient" FromRole="DocumentProcess" ToRole="Expedient" />
+    <NavigationProperty Name="DocumentCheck" Relationship="GDModel.FK_DocumentProcess_CheckType" FromRole="DocumentProcess" ToRole="DocumentCheck" />
+    <NavigationProperty Name="Expedient" Relationship="GDModel.FK_DocumentProcess_Expedient" FromRole="DocumentProcess" ToRole="Expedient" />
   </EntityType>
   <EntityType Name="Expedient">
     <Key>
@@ -110,24 +193,24 @@
     </Key>
     <Property Name="IdExpendient" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdProject" Type="Int32" Nullable="false" />
-    <Property Name="FileExpendient" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Predial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="NameDemandant" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FileExpendient" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Predial" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NameDemandant" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="IdTypeProcess" Type="Int32" />
     <Property Name="Settled" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="Court" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Magistrate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Resposible" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Resposible" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Amount" Type="Int32" />
     <Property Name="appraise" Type="Int32" />
     <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Advance" Type="Int32" Nullable="false" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="CheckProcess" Relationship="Self.FK_CheckProcess_Expedient" FromRole="Expedient" ToRole="CheckProcess" />
-    <NavigationProperty Name="DocumentProcess" Relationship="Self.FK_DocumentProcess_Expedient" FromRole="Expedient" ToRole="DocumentProcess" />
-    <NavigationProperty Name="Project" Relationship="Self.FK_Expedient_Project" FromRole="Expedient" ToRole="Project" />
-    <NavigationProperty Name="TypeProcess" Relationship="Self.FK_Expedient_TypeProcess" FromRole="Expedient" ToRole="TypeProcess" />
-    <NavigationProperty Name="Record" Relationship="Self.FK_Record_Expedient" FromRole="Expedient" ToRole="Record" />
+    <NavigationProperty Name="CheckProcess" Relationship="GDModel.FK_CheckProcess_Expedient" FromRole="Expedient" ToRole="CheckProcess" />
+    <NavigationProperty Name="DocumentProcess" Relationship="GDModel.FK_DocumentProcess_Expedient" FromRole="Expedient" ToRole="DocumentProcess" />
+    <NavigationProperty Name="Project" Relationship="GDModel.FK_Expedient_Project" FromRole="Expedient" ToRole="Project" />
+    <NavigationProperty Name="TypeProcess" Relationship="GDModel.FK_Expedient_TypeProcess" FromRole="Expedient" ToRole="TypeProcess" />
+    <NavigationProperty Name="Record" Relationship="GDModel.FK_Record_Expedient" FromRole="Expedient" ToRole="Record" />
   </EntityType>
   <EntityType Name="Project">
     <Key>
@@ -135,14 +218,14 @@
     </Key>
     <Property Name="IdProject" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="CodProject" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="NameProject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameProject" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IdRepresent" Type="Int32" />
-    <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="UseProject" Type="Boolean" Nullable="false" />
-    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <Property Name="DateCreate" Type="DateTime" Precision="3" />
+    <Property Name="UseProject" Type="Boolean" />
+    <Property Name="Active" Type="Boolean" />
     <Property Name="Avance" Type="Int32" />
-    <NavigationProperty Name="Directory" Relationship="Self.FK_Project_Directory" FromRole="Project" ToRole="Directory" />
-    <NavigationProperty Name="Expedient" Relationship="Self.FK_Expedient_Project" FromRole="Project" ToRole="Expedient" />
+    <NavigationProperty Name="Directory" Relationship="GDModel.FK_Project_Directory" FromRole="Project" ToRole="Directory" />
+    <NavigationProperty Name="Expedient" Relationship="GDModel.FK_Expedient_Project" FromRole="Project" ToRole="Expedient" />
   </EntityType>
   <EntityType Name="Record">
     <Key>
@@ -150,38 +233,38 @@
     </Key>
     <Property Name="IdRecord" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="IdUser" Type="Int32" Nullable="false" />
-    <Property Name="NameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NameUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="IdCheckProcess" Type="Int32" Nullable="false" />
     <Property Name="IdExpedient" Type="Int32" Nullable="false" />
-    <Property Name="Observation" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Observation" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Expedient" Relationship="Self.FK_Record_Expedient" FromRole="Record" ToRole="Expedient" />
+    <NavigationProperty Name="Expedient" Relationship="GDModel.FK_Record_Expedient" FromRole="Record" ToRole="Expedient" />
   </EntityType>
   <EntityType Name="Rol">
     <Key>
       <PropertyRef Name="IdRol" />
     </Key>
     <Property Name="IdRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="UserGD" Relationship="Self.FK_UserGD_Rol" FromRole="Rol" ToRole="UserGD" />
+    <NavigationProperty Name="UserGD" Relationship="GDModel.FK_UserGD_Rol" FromRole="Rol" ToRole="UserGD" />
   </EntityType>
   <EntityType Name="State">
     <Key>
       <PropertyRef Name="IdState" />
     </Key>
     <Property Name="IdState" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="DocumentCheck" Relationship="Self.FK_DocumentCheck_State" FromRole="State" ToRole="DocumentCheck" />
+    <NavigationProperty Name="DocumentCheck" Relationship="GDModel.FK_DocumentCheck_State" FromRole="State" ToRole="DocumentCheck" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
     </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
     <Property Name="principal_id" Type="Int32" Nullable="false" />
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
@@ -192,22 +275,22 @@
       <PropertyRef Name="IdType" />
     </Key>
     <Property Name="IdType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="DocumentCheck" Relationship="Self.FK_DocumentCheck_Type" FromRole="Type" ToRole="DocumentCheck" />
+    <NavigationProperty Name="DocumentCheck" Relationship="GDModel.FK_DocumentCheck_Type" FromRole="Type" ToRole="DocumentCheck" />
   </EntityType>
   <EntityType Name="TypeProcess">
     <Key>
       <PropertyRef Name="IdTypeProcess" />
     </Key>
     <Property Name="IdTypeProcess" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Descriptionq" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
     <Property Name="UseType" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="CheckType" Relationship="Self.FK_CheckType_TypeProcess" FromRole="TypeProcess" ToRole="CheckType" />
-    <NavigationProperty Name="Expedient" Relationship="Self.FK_Expedient_TypeProcess" FromRole="TypeProcess" ToRole="Expedient" />
+    <NavigationProperty Name="CheckType" Relationship="GDModel.FK_CheckType_TypeProcess" FromRole="TypeProcess" ToRole="CheckType" />
+    <NavigationProperty Name="Expedient" Relationship="GDModel.FK_Expedient_TypeProcess" FromRole="TypeProcess" ToRole="Expedient" />
   </EntityType>
   <EntityType Name="UserGD">
     <Key>
@@ -220,12 +303,12 @@
     <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="Active" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="Directory" Relationship="Self.FK_UserGD_Directory" FromRole="UserGD" ToRole="Directory" />
-    <NavigationProperty Name="Rol" Relationship="Self.FK_UserGD_Rol" FromRole="UserGD" ToRole="Rol" />
+    <NavigationProperty Name="Directory" Relationship="GDModel.FK_UserGD_Directory" FromRole="UserGD" ToRole="Directory" />
+    <NavigationProperty Name="Rol" Relationship="GDModel.FK_UserGD_Rol" FromRole="UserGD" ToRole="Rol" />
   </EntityType>
   <Association Name="FK_CheckType_Check">
-    <End Role="Check" Type="Self.Check" Multiplicity="1" />
-    <End Role="CheckType" Type="Self.CheckType" Multiplicity="*" />
+    <End Type="GDModel.Check" Role="Check" Multiplicity="1" />
+    <End Type="GDModel.CheckType" Role="CheckType" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Check">
         <PropertyRef Name="IdCheck" />
@@ -236,8 +319,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CheckProcess_CheckType">
-    <End Role="CheckType" Type="Self.CheckType" Multiplicity="1" />
-    <End Role="CheckProcess" Type="Self.CheckProcess" Multiplicity="*" />
+    <End Type="GDModel.CheckType" Role="CheckType" Multiplicity="1" />
+    <End Type="GDModel.CheckProcess" Role="CheckProcess" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CheckType">
         <PropertyRef Name="IdCheckType" />
@@ -248,8 +331,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CheckProcess_Expedient">
-    <End Role="Expedient" Type="Self.Expedient" Multiplicity="1" />
-    <End Role="CheckProcess" Type="Self.CheckProcess" Multiplicity="*" />
+    <End Type="GDModel.Expedient" Role="Expedient" Multiplicity="1" />
+    <End Type="GDModel.CheckProcess" Role="CheckProcess" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Expedient">
         <PropertyRef Name="IdExpendient" />
@@ -260,8 +343,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CheckType_TypeProcess">
-    <End Role="TypeProcess" Type="Self.TypeProcess" Multiplicity="1" />
-    <End Role="CheckType" Type="Self.CheckType" Multiplicity="*" />
+    <End Type="GDModel.TypeProcess" Role="TypeProcess" Multiplicity="1" />
+    <End Type="GDModel.CheckType" Role="CheckType" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TypeProcess">
         <PropertyRef Name="IdTypeProcess" />
@@ -272,8 +355,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DocumentCheck_CheckType">
-    <End Role="CheckType" Type="Self.CheckType" Multiplicity="1" />
-    <End Role="DocumentCheck" Type="Self.DocumentCheck" Multiplicity="*" />
+    <End Type="GDModel.CheckType" Role="CheckType" Multiplicity="1" />
+    <End Type="GDModel.DocumentCheck" Role="DocumentCheck" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="CheckType">
         <PropertyRef Name="IdCheckType" />
@@ -283,21 +366,9 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_DocumentProcess_CheckType">
-    <End Role="CheckType" Type="Self.CheckType" Multiplicity="1" />
-    <End Role="DocumentProcess" Type="Self.DocumentProcess" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CheckType">
-        <PropertyRef Name="IdCheckType" />
-      </Principal>
-      <Dependent Role="DocumentProcess">
-        <PropertyRef Name="IdCheckType" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Project_Directory">
-    <End Role="Directory" Type="Self.Directory" Multiplicity="0..1" />
-    <End Role="Project" Type="Self.Project" Multiplicity="*" />
+    <End Type="GDModel.Directory" Role="Directory" Multiplicity="0..1" />
+    <End Type="GDModel.Project" Role="Project" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Directory">
         <PropertyRef Name="IdDirectory" />
@@ -308,8 +379,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserGD_Directory">
-    <End Role="Directory" Type="Self.Directory" Multiplicity="1" />
-    <End Role="UserGD" Type="Self.UserGD" Multiplicity="*" />
+    <End Type="GDModel.Directory" Role="Directory" Multiplicity="1" />
+    <End Type="GDModel.UserGD" Role="UserGD" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Directory">
         <PropertyRef Name="IdDirectory" />
@@ -320,8 +391,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DocumentCheck_Document">
-    <End Role="Document" Type="Self.Document" Multiplicity="0..1" />
-    <End Role="DocumentCheck" Type="Self.DocumentCheck" Multiplicity="*" />
+    <End Type="GDModel.Document" Role="Document" Multiplicity="0..1" />
+    <End Type="GDModel.DocumentCheck" Role="DocumentCheck" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Document">
         <PropertyRef Name="IdDocument" />
@@ -332,8 +403,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DocumentCheck_State">
-    <End Role="State" Type="Self.State" Multiplicity="1" />
-    <End Role="DocumentCheck" Type="Self.DocumentCheck" Multiplicity="*" />
+    <End Type="GDModel.State" Role="State" Multiplicity="1" />
+    <End Type="GDModel.DocumentCheck" Role="DocumentCheck" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="State">
         <PropertyRef Name="IdState" />
@@ -344,8 +415,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DocumentCheck_Type">
-    <End Role="Type" Type="Self.Type" Multiplicity="1" />
-    <End Role="DocumentCheck" Type="Self.DocumentCheck" Multiplicity="*" />
+    <End Type="GDModel.Type" Role="Type" Multiplicity="1" />
+    <End Type="GDModel.DocumentCheck" Role="DocumentCheck" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Type">
         <PropertyRef Name="IdType" />
@@ -355,9 +426,21 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_DocumentProcess_CheckType">
+    <End Type="GDModel.DocumentCheck" Role="DocumentCheck" Multiplicity="1" />
+    <End Type="GDModel.DocumentProcess" Role="DocumentProcess" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCheck">
+        <PropertyRef Name="IdDocumentCheck" />
+      </Principal>
+      <Dependent Role="DocumentProcess">
+        <PropertyRef Name="IdDocumentCheck" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_DocumentProcess_Expedient">
-    <End Role="Expedient" Type="Self.Expedient" Multiplicity="1" />
-    <End Role="DocumentProcess" Type="Self.DocumentProcess" Multiplicity="*" />
+    <End Type="GDModel.Expedient" Role="Expedient" Multiplicity="1" />
+    <End Type="GDModel.DocumentProcess" Role="DocumentProcess" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Expedient">
         <PropertyRef Name="IdExpendient" />
@@ -368,8 +451,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Expedient_Project">
-    <End Role="Project" Type="Self.Project" Multiplicity="1" />
-    <End Role="Expedient" Type="Self.Expedient" Multiplicity="*" />
+    <End Type="GDModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="GDModel.Expedient" Role="Expedient" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Project">
         <PropertyRef Name="IdProject" />
@@ -380,8 +463,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Expedient_TypeProcess">
-    <End Role="TypeProcess" Type="Self.TypeProcess" Multiplicity="0..1" />
-    <End Role="Expedient" Type="Self.Expedient" Multiplicity="*" />
+    <End Type="GDModel.TypeProcess" Role="TypeProcess" Multiplicity="0..1" />
+    <End Type="GDModel.Expedient" Role="Expedient" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="TypeProcess">
         <PropertyRef Name="IdTypeProcess" />
@@ -392,8 +475,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Record_Expedient">
-    <End Role="Expedient" Type="Self.Expedient" Multiplicity="1" />
-    <End Role="Record" Type="Self.Record" Multiplicity="*" />
+    <End Type="GDModel.Expedient" Role="Expedient" Multiplicity="1" />
+    <End Type="GDModel.Record" Role="Record" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Expedient">
         <PropertyRef Name="IdExpendient" />
@@ -404,8 +487,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UserGD_Rol">
-    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
-    <End Role="UserGD" Type="Self.UserGD" Multiplicity="*" />
+    <End Type="GDModel.Rol" Role="Rol" Multiplicity="1" />
+    <End Type="GDModel.UserGD" Role="UserGD" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Rol">
         <PropertyRef Name="IdRol" />
@@ -415,87 +498,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="GDEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Audit" EntityType="Self.Audit" />
-    <EntitySet Name="Check" EntityType="Self.Check" />
-    <EntitySet Name="CheckProcess" EntityType="Self.CheckProcess" />
-    <EntitySet Name="CheckType" EntityType="Self.CheckType" />
-    <EntitySet Name="Directory" EntityType="Self.Directory" />
-    <EntitySet Name="Document" EntityType="Self.Document" />
-    <EntitySet Name="DocumentCheck" EntityType="Self.DocumentCheck" />
-    <EntitySet Name="DocumentProcess" EntityType="Self.DocumentProcess" />
-    <EntitySet Name="Expedient" EntityType="Self.Expedient" />
-    <EntitySet Name="Project" EntityType="Self.Project" />
-    <EntitySet Name="Record" EntityType="Self.Record" />
-    <EntitySet Name="Rol" EntityType="Self.Rol" />
-    <EntitySet Name="State" EntityType="Self.State" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Type" EntityType="Self.Type" />
-    <EntitySet Name="TypeProcess" EntityType="Self.TypeProcess" />
-    <EntitySet Name="UserGD" EntityType="Self.UserGD" />
-    <AssociationSet Name="FK_CheckType_Check" Association="Self.FK_CheckType_Check">
-      <End Role="Check" EntitySet="Check" />
-      <End Role="CheckType" EntitySet="CheckType" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CheckProcess_CheckType" Association="Self.FK_CheckProcess_CheckType">
-      <End Role="CheckType" EntitySet="CheckType" />
-      <End Role="CheckProcess" EntitySet="CheckProcess" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CheckProcess_Expedient" Association="Self.FK_CheckProcess_Expedient">
-      <End Role="Expedient" EntitySet="Expedient" />
-      <End Role="CheckProcess" EntitySet="CheckProcess" />
-    </AssociationSet>
-    <AssociationSet Name="FK_CheckType_TypeProcess" Association="Self.FK_CheckType_TypeProcess">
-      <End Role="TypeProcess" EntitySet="TypeProcess" />
-      <End Role="CheckType" EntitySet="CheckType" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DocumentCheck_CheckType" Association="Self.FK_DocumentCheck_CheckType">
-      <End Role="CheckType" EntitySet="CheckType" />
-      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DocumentProcess_CheckType" Association="Self.FK_DocumentProcess_CheckType">
-      <End Role="CheckType" EntitySet="CheckType" />
-      <End Role="DocumentProcess" EntitySet="DocumentProcess" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Project_Directory" Association="Self.FK_Project_Directory">
-      <End Role="Directory" EntitySet="Directory" />
-      <End Role="Project" EntitySet="Project" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserGD_Directory" Association="Self.FK_UserGD_Directory">
-      <End Role="Directory" EntitySet="Directory" />
-      <End Role="UserGD" EntitySet="UserGD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DocumentCheck_Document" Association="Self.FK_DocumentCheck_Document">
-      <End Role="Document" EntitySet="Document" />
-      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DocumentCheck_State" Association="Self.FK_DocumentCheck_State">
-      <End Role="State" EntitySet="State" />
-      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DocumentCheck_Type" Association="Self.FK_DocumentCheck_Type">
-      <End Role="Type" EntitySet="Type" />
-      <End Role="DocumentCheck" EntitySet="DocumentCheck" />
-    </AssociationSet>
-    <AssociationSet Name="FK_DocumentProcess_Expedient" Association="Self.FK_DocumentProcess_Expedient">
-      <End Role="Expedient" EntitySet="Expedient" />
-      <End Role="DocumentProcess" EntitySet="DocumentProcess" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Expedient_Project" Association="Self.FK_Expedient_Project">
-      <End Role="Project" EntitySet="Project" />
-      <End Role="Expedient" EntitySet="Expedient" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Expedient_TypeProcess" Association="Self.FK_Expedient_TypeProcess">
-      <End Role="TypeProcess" EntitySet="TypeProcess" />
-      <End Role="Expedient" EntitySet="Expedient" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Record_Expedient" Association="Self.FK_Record_Expedient">
-      <End Role="Expedient" EntitySet="Expedient" />
-      <End Role="Record" EntitySet="Record" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserGD_Rol" Association="Self.FK_UserGD_Rol">
-      <End Role="Rol" EntitySet="Rol" />
-      <End Role="UserGD" EntitySet="UserGD" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

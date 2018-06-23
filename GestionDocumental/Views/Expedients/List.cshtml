@@ -1,4 +1,4 @@
-﻿@model  List<GestionDocumental.Metadata.ExpedientsMD>
+﻿@model  GestionDocumental.Metadata.ExpedientProjectMD
 
 @{
     ViewBag.Title = "Edit";
@@ -7,80 +7,48 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.common.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.rtl.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.default.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.mobile.all.min.css">
 
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <script src="~/Scripts/angular.min.js"></script>
-    <script src="~/Scripts/app/app.expedientProject.js"></script>
 
-
-
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2018.2.516/js/angular.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2018.2.516/js/jszip.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2018.2.516/js/kendo.all.min.js"></script>
 
-
+    <script src="~/Scripts/app/app.expedientProject.js"></script>
     <script src="~/Scripts/controllers/expedientProject.Controller.js"></script>
     <script src="~/Scripts/Factory/expedientProjectFactory.js"></script>
-
 </head>
 
 
 <body ng-app="ExpedientProjectApp" ng-controller="ExpedientProjectController as vm">
-    {{vm.title}}
-   
-    <table class="table">
-        <tr>
-            <th></th>
-        </tr>
 
+    <h2>Expedientes del proyecto @Model.NameProject  </h2>
 
-        @*@foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FileExpendient)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Predial)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NameDemandant)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Settled)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Court)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Magistrate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Resposible)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.appraise)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateCreate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Advance)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Active)
-                </td>
-            </tr>
-        }*@
-
-    </table>
+    <label id="idExpedent" hidden>@Model.IdProject</label>
+    <div class="row">
+        <label class="control-label col-md-2">Código del proyecto:</label>
+        <div class="col-md-3">
+            @Model.CodProject
+    </div>
+    <label class="control-label col-md-2">Representante:</label>
+    <div class="col-md-3">
+        @Model.IdRepresent
+        </div>
+    </div>
+    <div>
+        <div><label class="">@Html.ActionLink("+ Crear expediente", "Create")</label><br /></div>
+    </div>
+    <br />
+    <div kendo-grid k-options="vm.mainGridOptions">
+    </div>
+    <table class="table"></table>
+    <div>
+        @Html.ActionLink("Regresar a proyectos", "../Projects/Index")
+    </div>
 </body>
 </html>

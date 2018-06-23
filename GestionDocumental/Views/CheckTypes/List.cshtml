@@ -1,0 +1,58 @@
+﻿@model  GestionDocumental.Metadata.DocumentExpedientMD
+
+@{
+    ViewBag.Title = "Chequeo";
+}
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.common.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.rtl.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.default.min.css">
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.mobile.all.min.css">
+
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
+
+    <script src="https://kendo.cdn.telerik.com/2018.2.516/js/jszip.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2018.2.516/js/kendo.all.min.js"></script>
+
+    <script src="~/Scripts/app/app.ExpedientCheck.js"></script>
+    <script src="~/Scripts/controllers/expedientCheck.Controller.js"></script>
+    <script src="~/Scripts/Factory/expedientCheckFactory.js"></script>
+
+</head>
+<body ng-app="ExpedientCheckApp" ng-controller="ExpedientCheckController as vm">
+
+    <h2>Expediente @Model.FileExpendient  </h2>
+
+    <label id="idExpedent" hidden>@Model.IdExpendient</label>
+    <div class="row">
+        <label class="control-label col-md-2">Ficha predial:</label>
+        <div class="col-md-3">
+            @Model.FileExpendient
+        </div>
+        <label class="control-label col-md-2">Demandante:</label>
+        <div class="col-md-3">
+            @Model.NameDemandant
+        </div>
+        <label class="control-label col-md-2">Juex:</label>
+        <div class="col-md-3">
+            @Model.Magistrate
+        </div>
+    </div>
+    <div>
+    </div>
+    <br />
+    <div kendo-grid k-options="vm.mainGridOptions">
+    </div>
+    <table class="table"></table>
+
+
+    <div>
+        @Html.ActionLink("Regresar a lista", "/Index")
+    </div>
+</body>
+</html>
