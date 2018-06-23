@@ -8,6 +8,7 @@ function documentCheckFactory($http) {
 
     return {
         getListDocument: getListDocument
+
     };
 
     function getListDocument(id, idExpedient) {
